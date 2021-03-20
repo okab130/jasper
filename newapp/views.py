@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,ListView
+from .models import Post
 
 class SampleTemplateView(TemplateView):
     template_name = "newapp/index.html"
@@ -9,13 +10,18 @@ class SampleTemplateView(TemplateView):
 #        context["foo"] = "bar"
         
         context["foo1"] = self.template_name
-        context["foo2"] = "aa"
-        context["foo3"] = "bb"
-        context["foo4"] = "cc"
-        context["foo5"] = "あああああああああああああああああああああああああああああああ"
-        context["foo6"] = "あああああああああああああああああああああああああああああああ"
-        context["foo7"] = "あああああああああああああああああああああああああああああああ"
-        context["foo8"] = "あああああああああああああああああああああああああああああああ"
-        context["foo9"] = "あああああああああああああああああああああああああああああああ"
+        queryset = Post.objects.get(author='岡部')
+
+        print(context)
+        for aa in Post.objects.all():
+            print(aa.author)
+
         return context
 
+class SampleView(ListView):
+    template_name = 'newapp/list.html'
+    model = Post
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(context)
+        return context
