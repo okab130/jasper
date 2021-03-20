@@ -1,1 +1,24 @@
-<h1>aaaaaaaaaaa</h1>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="sample">{{ foo1 }}</div>
+    <div class="sample">{{ foo2 }}</div>
+    <div class="sample">{{ foo3 }}</div>
+    <div class="sample">{{ foo4 }}</div>
+    <div class="sample">{{ foo5 }}</div>
+    <div class="sample">{{ foo6 }}</div>
+    <div class="sample">{{ foo7 }}</div>
+    <div class="sample">{{ foo8 }}</div>
+    <div class="sample">{{ foo9 }}</div>
+</body>
+</html>
+
